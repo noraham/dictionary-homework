@@ -1,24 +1,51 @@
-melon_names = {
-    1: "Honeydew",
-    2: "Crenshaw",
-    3: "Crane",
-    4: "Casaba",
-    5: "Cantaloupe",
+melon_tracking = {
+    "Honeydew": {
+        "price": 0.99,
+        "seedless": True,
+        "flesh_color": "Green",
+        "rind_color": "Light Green",
+        "weight": "Medium",
+    },
+
+    "Crenshaw": {
+        "price": 2.00,
+        "seedless": False,
+        "flesh_color": "Green",
+        "rind_color": "Green",
+        "weight": "Low",
+    },
+
+    "Crane": {
+        "price": 2.50,
+        "seedless": False,
+        "flesh_color": "Red",
+        "rind_color": "Green",
+        "weight": "Low",
+    },
+
+    "Casaba": {
+        "price": 2.50,
+        "seedless": False,
+        "flesh_color": "Yellow",
+        "rind_color": "Yellow",
+        "weight": "High",
+    },
+
+    "Cantaloupe": {
+        "price": 0.99,
+        "seedless": False,
+        "flesh_color": "Orange",
+        "rind_color": "Taupe",
+        "weight": "High",
+    }
 }
 
-melon_prices = {
-    1: 0.99,
-    2: 2.00,
-    3: 2.50,
-    4: 2.50,
-    5: 0.99,
-}
+def add_melon_attribute():
+    """adds new tracked attributes (as type str) for each melon type"""
 
-melon_seedlessness = {
-    1: True,
-    2: False,
-    3: False,
-    4: False,
-    5: False,
-}
+    new_key = raw_input("type the new attribute: ")
+    
+    for melon, nested_melon_dict in melon_tracking.items():
+        new_value = raw_input("type the value for {} {}: ".format(melon, new_key))
+        nested_melon_dict[new_key] = new_value
 

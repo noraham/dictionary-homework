@@ -1,18 +1,16 @@
 """Print out all the melons in our inventory."""
 
 
-from melons import melon_names, melon_seedlessness, melon_prices
+from melons import (melon_tracking)
+
+def print_all_melons(melon_tracking):
+    """prints all known melon details from melon_tracking dictionary in melons.py"""
+
+    for melon, nested_melon_dict in melon_tracking.items():  # iterate through key:values in this dict
+        print melon.upper()
+        for key, value in nested_melon_dict.items():  # the value from the above iteration happened to be another dictionary, so iterate through the key:values in this dict
+            print key + ":", value  # print each key:value on separate line
+        print
 
 
-def print_melon(name, seedless, price):
-    """Print each melon."""
-
-    have_or_have_not = 'have'
-    if seedless:
-        have_or_have_not = 'do not have'
-
-    print "{}s {} seeds and are ${:.2f}".format(name, have_or_have_not, price)
-
-
-for i in melon_names:
-    print_melon(melon_names[i], melon_seedlessness[i], melon_prices[i])
+print_all_melons(melon_tracking)
